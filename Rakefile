@@ -2,6 +2,8 @@ require 'rspec'
 require './jeffslist'
 require 'sinatra/activerecord/rake'
 
+task :default => :spec
+
 begin
   require 'rspec/core/rake_task'
 
