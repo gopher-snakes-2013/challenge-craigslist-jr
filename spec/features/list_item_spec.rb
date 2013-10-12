@@ -8,16 +8,12 @@ feature "Post a listing" do
     fill_in('price', with: '200')
     click_button('Post Listing')
     @post = Post.last
-  end
-
-  scenario "should allow you to post product" do
-    expect(page).to have_content('iPad')
+    visit('/')
   end
 
   scenario "should update index with link to post" do
     expect(page).to have_content("iPad")
   end
-  
 
   after :each do
     @post.destroy

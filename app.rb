@@ -18,12 +18,29 @@ get '/' do
 end
 
 post '/' do
-  Post.create(title: params["title"], description: params["description"], price: params["price"])
-  redirect('/')
+  edit_url = ""
+  10.times do
+    edit_url << (rand(9) + 1).to_s
+  end
+  new_post = Post.create(title: params["title"], description: params["description"], price: params["price"], edit_url: edit_url)
+  redirect("/#{new_post.id}/#{new_post.edit_url}")
 end
 
 get '/:id' do
   @post_id = params[:id]
   @posting = Post.find_by(id: @post_id)
   erb :posting
+end
+
+get '/:id/:edit_url' do
+  @post_id = params[:id]
+  @posting = Post.find_by(id: @post_id)
+  erb :edit_posting 
+end
+
+post '/update/:id' do
+  post_id = params[:id]
+  posting = Post.find_by(id: post_id)
+  posting.update(title: params["title"], description: params["description"], price: params["price"])  
+  redirect "/#{post_id}/#{posting.edit_url}"
 end

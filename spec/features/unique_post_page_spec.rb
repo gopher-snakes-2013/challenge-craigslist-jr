@@ -8,13 +8,12 @@ feature "Unique page for listing" do
     fill_in('price', with: '200')
     click_button('Post Listing')
     @post = Post.last
-    click_link("#{@post.title}")
   end
 
   scenario "should create unique page for listing" do
     expect(page).to have_content("iPad")
     expect(page).to have_content("White 16GB iPad 2. Wifi with Orange cover")
-    expect(page).to have_content("$200")
+    expect(page).to have_content("200")
   end
 
   after :each do
