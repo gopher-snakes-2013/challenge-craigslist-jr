@@ -27,6 +27,7 @@ end
 
 Migrate again. Now, when you check the schema, the table exists.
 
+Better yet, create the model after running rake db:create_migration but before running rake db:migrate.
 
 ---
 # Craigslist Jr
