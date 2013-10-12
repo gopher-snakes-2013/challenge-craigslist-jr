@@ -9,16 +9,24 @@ describe Post do
     expect(post.description).to eql "This example bike is in good shape."
     expect(post.price).to eql "$30"
   end
+
+  it  { should validate_presence_of(:title) }
+  it  { should validate_presence_of(:description) }
+  it  { should validate_presence_of(:price) }
+
 end
 
 feature 'Guest visits home page' do 
   scenario 'post item for sale' do 
     visit '/'
-    fill_in 'Title', with: "Example Title"
-    fill_in 'Description', with: "Example Desciption"
-    fill_in 'Price', with: "$30 example"
+    fill_in 'title', with: "Example Title"
+    fill_in 'description', with: "Example Desciption"
+    fill_in 'price', with: "$30 example"
     click_button 'Post'
   end
+
+  # scenario 'new post is listed on home page'
+  #   visit
 
 end
 

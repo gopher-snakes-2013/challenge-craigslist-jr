@@ -1,6 +1,11 @@
 <form method="POST" action="/post">
-<label>Title<input type="text" name="Title"></label>
-<label>Description<input type="text" name="Description"></label>
-<label>Price<input type="text" name="Price"></label>
+<label>Title<input type="text" name="title"></label>
+<label>Description<input type="text" name="description"></label>
+<label>Price<input type="text" name="price"></label>
 <input type="submit" value="Post">
 </form>
+
+<% @posts.each do |post| %>
+  <li> <%= post.title %> : <%= post.description %> : <%= post.price %></li>
+
+  <% end %>

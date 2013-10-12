@@ -4,5 +4,11 @@ require './environments'
 require './models/post'
 
 get '/' do 
- erb :index
+  @posts = Post.all
+  erb :index
+end
+
+post '/post' do 
+  Post.create(params)
+  redirect '/'
 end
