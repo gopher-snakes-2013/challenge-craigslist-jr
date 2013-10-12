@@ -1,0 +1,16 @@
+<h1>Welcome to Craigslist Jr!</h1>
+
+<h2>Post a Listing:</h2>
+
+<form method="post" action="/">
+	<label>Title: <input type="text" name="title"></label><br/>
+	<label>Description <textarea rows="4" cols="50" name="description"></textarea></label><br/>
+	<label>Price: <input type="text" name="price"></label><br/>
+	<input type="submit" value="Post Listing">
+</form>
+
+<h2>Current Listings:</h2>
+
+<% @all_postings.each do |post| %>
+	<a href="/<%= post.id %>">iPad</a>
+<% end %>
