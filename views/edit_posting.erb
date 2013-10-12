@@ -1,0 +1,19 @@
+<h1>Posting Created!</h1>
+<ul>
+	<li>Title: <%= @posting.title %></li>
+	<li>Proce: $<%= @posting.price %></li>
+	<li>Description: <%= @posting.description %></li>
+</ul>
+
+<hr>
+<a href="/<%= @posting.id %>/<%= @posting.edit_url %>">Please use this link to edit your posting</a>
+<h2>Edit Your Posting:</h2>
+
+<form method="post" action="/update">
+	<label>Title: <input type="text" name="title"></label><br/>
+	<label>Description <textarea rows="4" cols="50" name="description"></textarea></label><br/>
+	<label>Price: <input type="text" name="price"></label><br/>
+	<input type="submit" value="Update Listing">
+</form>
+
+<a href="/">Return to Craigslist Jr.</a>

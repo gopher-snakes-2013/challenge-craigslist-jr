@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131012194257) do
+ActiveRecord::Schema.define(version: 20131012215336) do
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20131012194257) do
     t.string   "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "edit_url"
   end
 
 end
