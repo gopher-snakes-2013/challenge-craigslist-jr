@@ -5,6 +5,15 @@ After setting up my files, I wanted to test that when I push to Heroku, it worke
 
 git push heroku heroku-deploy:master
 
+###How to merge brange one branch onto another
+I want to merge my initial-deploy branch onto my craigslist-jr branch. To do so, first checkout the branch you want to merge onto using:
+
+git checkout craigslist-jr
+
+then to merge a branch onto craigslist-jr, type:
+
+git merge initial-deploy
+
 ---
 # Craigslist Jr
 1. [Learning Objectives](#learning-objectives)
