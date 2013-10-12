@@ -17,18 +17,19 @@ describe Post do
 end
 
 feature 'Guest visits home page' do 
+  let(:post) { Post.create(title: "Example Bike", 
+                          description: "This example bike is in good shape.",
+                          price: "$30")}
   scenario 'post item for sale' do 
     visit '/'
     fill_in 'title', with: "Example Title"
     fill_in 'description', with: "Example Desciption"
     fill_in 'price', with: "$30 example"
-    click_button 'Post'
   end
 
-  # scenario 'new post is listed on home page'
-  #   visit
-
 end
+
+
 
 
 
