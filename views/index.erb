@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+  <title>Craigslist Jr!</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <style>
+    ul {
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="/"><h1> Craigslist Jr. </h1></a>
+    </div>
+  </div>
+
+  <div class="item_list">
+    <h2> Stuff fo' Sale </h2>
+    <% @items.each do |item| %>
+      <p><a href="#"> <%=item.title%></a></p>
+    <% end %>
+  </div>
+
+  <div class="item_form">
+    <span class="item_entry"> Post a CL Jr Ad 
+    </span>
+    <br/>
+    <form action="/form" method="post" id="item_entry_form">
+      <input type="text" name="price" placeholder="price">
+    <br/>    
+      <input type="text" name="title" placeholder="title">
+    </br>
+      <textarea name="description" placeholder="item description" form="item_entry_form"> 
+      </textarea>
+    </br>
+      <input type="submit" name="create_ad">
+    </form>
+  </div>
+
+</body>
+
+</html>
