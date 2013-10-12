@@ -14,6 +14,12 @@ then to merge a branch onto craigslist-jr, type:
 
 git merge initial-deploy
 
+###What to do when git ISNT ignoring files listed in .gitignore
+If git isn't ignoring files listed in the .gitignore file it's probably because that file was already being tracked BEFORE a rule was added to the .gitignore file to be ignored. To untrack the file so that git will start ignoring it, type:
+
+git rm --cached <filename>
+
+
 ---
 # Craigslist Jr
 1. [Learning Objectives](#learning-objectives)
