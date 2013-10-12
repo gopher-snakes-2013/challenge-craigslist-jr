@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20131012204702) do
 
   create_table "items", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.string   "price"
     t.string   "url"
     t.datetime "created_at"
