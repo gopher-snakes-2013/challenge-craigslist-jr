@@ -4,5 +4,5 @@ require './environments'
 require './models/post'
 
 get '/' do 
-  "Welcome to Jeff's List"
+ erb :index
 end
