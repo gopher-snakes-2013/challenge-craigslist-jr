@@ -1,6 +1,6 @@
 class AddRandomNumForEditUrl < ActiveRecord::Migration
   def up
-    add_column :posts, :edit_url, :strings
+    add_column :posts, :edit_url, :string
   end
 
   def down
