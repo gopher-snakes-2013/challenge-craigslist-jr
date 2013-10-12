@@ -38,3 +38,9 @@ get '/:id/:edit_url' do
   erb :edit_posting 
 end
 
+post '/update/:id' do
+  post_id = params[:id]
+  posting = Post.find_by(id: post_id)
+  posting.update(title: params["title"], description: params["description"], price: params["price"])  
+  redirect "/#{post_id}/#{posting.edit_url}"
+end

@@ -9,7 +9,7 @@
 <a href="/<%= @posting.id %>/<%= @posting.edit_url %>">Please use this link to edit your posting</a>
 <h2>Edit Your Posting:</h2>
 
-<form method="post" action="/update">
+<form method="post" action="/update/<%= @posting.id %>">
 	<label>Title: <input type="text" name="title" value="<%= @posting.title %>"></label><br/>
 	<label>Description <textarea rows="4" cols="50" name="description"><%= @posting.description %></textarea></label><br/>
 	<label>Price: <input type="text" name="price" value="<%= @posting.price %>"></label><br/>
