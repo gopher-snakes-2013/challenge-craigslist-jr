@@ -1,7 +1,7 @@
 <h1>Posting Created!</h1>
 <ul>
 	<li>Title: <%= @posting.title %></li>
-	<li>Proce: $<%= @posting.price %></li>
+	<li>Price: $<%= @posting.price %></li>
 	<li>Description: <%= @posting.description %></li>
 </ul>
 
@@ -11,8 +11,8 @@
 
 <form method="post" action="/update/<%= @posting.id %>">
 	<label>Title: <input type="text" name="title" value="<%= @posting.title %>"></label><br/>
+	<label>Price: $<input type="text" name="price" value="<%= @posting.price %>"></label><br/>
 	<label>Description <textarea rows="4" cols="50" name="description"><%= @posting.description %></textarea></label><br/>
-	<label>Price: <input type="text" name="price" value="<%= @posting.price %>"></label><br/>
 	<input type="submit" value="Update Listing">
 </form>
 
