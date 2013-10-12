@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRAIGSLIST JR BITCH</title>
+  <link href="normalize.css" rel="stylesheet" type="text/css">
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+    edit <%= "#{@item_to_edit.title}" %><br/>
+    last updated at <%= "#{@item_to_edit.updated_at}" %>
+    </div>
+
+    <br/>
+
+    <div class="edit-listing">
+      <form action="/edit" method="post">
+        <input type="hidden" name="id" value="<%= @item_to_edit.id %>">
+        <input type="text" name="title" placeholder="ITEM">
+        <input type="text" name="description" placeholder="DESCRIPTION">
+        <input type="text" name="price" placeholder="$">
+        <input type="submit" value="EDIT">
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
