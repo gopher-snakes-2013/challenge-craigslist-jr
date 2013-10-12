@@ -1,1 +1,14 @@
-"Hello, World!"
+<a href='/'>Home</a> | <a href='/item/new'>List an item</a>
+<h1>Robert's Craigslist Jr</h1>
+<h3>Items for sale</h3>
+<% if @items %>
+  <ul>
+  <% @items.each do |item| %>
+
+      <li><p><%= item.price %> | <a href='/item/<%= item.id %>'><%= item.title %></a></p>
+
+  <% end %>
+  </ul>
+<% else %>
+  <h3> No listings available </h3>
+<% end %>
