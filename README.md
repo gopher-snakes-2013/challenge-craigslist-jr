@@ -19,6 +19,14 @@ If git isn't ignoring files listed in the .gitignore file it's probably because 
 
 git rm --cached <filename>
 
+###Don't forget this after migrating your new table
+After migrating your new table, check your schema (in sqlite3) to see if the table exists. It doesn't. What happened. After you migrate, don't forget to create the model:
+
+class Item < ActiveRecord::Base
+end
+
+Migrate again. Now, when you check the schema, the table exists.
+
 
 ---
 # Craigslist Jr
