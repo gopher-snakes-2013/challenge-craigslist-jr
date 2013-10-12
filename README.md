@@ -1,3 +1,11 @@
+#Robert's App Notes
+
+###How to deploy a branch to Heroku
+After setting up my files, I wanted to test that when I push to Heroku, it worked properly, and if not, I could troubleshoot any problems safely in a heroku-deploy branch. To deploy a branch to Heroku, type the following command:
+
+git push heroku heroku-deploy:master
+
+---
 # Craigslist Jr
 1. [Learning Objectives](#learning-objectives)
 2. [Project Summary](#summary)
