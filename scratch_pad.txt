@@ -1,0 +1,4 @@
+- Rack
+- Sinatra::Application (double colon)
+ - require 'tasks/rspec'
+ - dotenv
