@@ -4,10 +4,23 @@ set :database, ENV['DATABASE_URL'] || "sqlite3:///db/craigslist_jr.db"
 
 class Item < ActiveRecord::Base
 end
+class User < ActiveRecord::Base
+end
 
 get '/' do
   @items=Item.all
   erb :index
+end
+
+get '/login' do
+  erb :login
+end
+
+post '/login' do
+  user = User.create(username: params[:username], password: params[:password])
+  session[:user_id] = user.id if user
+
+  redirect '/'
 end
 
 get '/item/new' do
