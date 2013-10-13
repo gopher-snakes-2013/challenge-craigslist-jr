@@ -18,4 +18,10 @@ class User < ActiveRecord::Base
     @user.password = params[:password]
     @user.save!
   end
+
+  def self.login(params)
+    return false unless User.exists?(name: params[:name])
+    @user = User.find_by_name(params[:name])
+    @user.password == params[:password]
+  end
 end
