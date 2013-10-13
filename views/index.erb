@@ -1,5 +1,9 @@
 <h1>Welcome to Craigslist Jr!</h1>
 
+<% if @user %>
+	<h2>Welcome, <%= @user.name %></h2>
+<% end %>
+
 <h2>Post a Listing:</h2>
 
 <%= flash[:error] %>
@@ -11,6 +15,7 @@
 	<input type="submit" value="Post Listing">
 </form>
 
+<a href="/sign_up">Click Here to Join Craigslist Jr.</a>
 
 <h2>Current Listings:</h2>
 

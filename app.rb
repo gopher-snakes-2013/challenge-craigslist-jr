@@ -3,6 +3,7 @@ require 'sinatra/activerecord'
 require 'sinatra/flash'
 
 require './models/post'
+require './models/user'
 
 
 begin 
@@ -17,6 +18,7 @@ enable :sessions
 
 get '/' do
   @all_postings = Post.all
+  @user = User.find_by(id: session[:user_id])
   erb :index
 end
 
@@ -27,7 +29,7 @@ post '/' do
     redirect("/posts/#{new_post.id}/#{new_post.edit_url}")
   else
     flash[:error] = "All fields are required!"
-    redirect '/'
+    redirect('/')
   end
 end
 
@@ -45,5 +47,20 @@ post '/posts/update/:id' do
   post_id = params[:id]
   posting = Post.find_by(id: post_id)
   posting.update(title: params["title"], description: params["description"], price: params["price"])  
-  redirect "/posts/#{post_id}/#{posting.edit_url}"
+  redirect("/posts/#{post_id}/#{posting.edit_url}")
+end
+
+get '/sign_up' do
+  erb :sign_up
+end
+
+post '/sign_up' do
+  new_user = User.new(name: params["sign_up_username"], password: params["sign_up_password"])g
+  if new_user.save
+    session[:user_id] = new_user.id
+    redirect("/")
+  else
+    flash[:error] = "All fields are required!"
+    redirect('/sign_up')
+  end
 end
