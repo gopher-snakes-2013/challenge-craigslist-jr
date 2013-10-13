@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20131013024826) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id_id"
+    t.integer  "user_id"
   end
 
-  add_index "items", ["user_id_id"], name: "index_items_on_user_id_id"
+  add_index "items", ["user_id"], name: "index_items_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "username"
