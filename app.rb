@@ -60,13 +60,13 @@ post '/sign_up' do
     session[:user_id] = new_user.id
     redirect("/")
   else
-    flash[:error] = "All fields are required!"
+    flash[:error] = "Username already taken. Please try again."
     redirect('/sign_up')
   end
 end
 
 post '/sign_in' do
-  if current_user = User.find_by(name: params["sign_in_username"])
+  if current_user = User.find_by(name: params["sign_in_username"], password: params["sign_in_password"])
     session[:user_id] = current_user.id
     redirect('/')
   else
