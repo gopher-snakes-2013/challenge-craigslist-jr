@@ -76,5 +76,7 @@ post '/sign_in' do
 end
 
 get '/users/:id' do
-  "Edit: iPad"
+  @user = User.find_by(id: session[:user_id])
+  @user_postings = Post.find_by(user_id: @user.id)
+  erb :profile
 end
