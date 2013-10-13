@@ -5,8 +5,10 @@ set :database, ENV['DATABASE_URL'] || "sqlite3:///db/craigslist_jr.db"
 enable :sessions
 
 class Item < ActiveRecord::Base
+  belongs_to :user
 end
 class User < ActiveRecord::Base
+  has_many :items
 end
 
 get '/' do
