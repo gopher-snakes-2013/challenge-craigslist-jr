@@ -3,6 +3,8 @@ require 'bcrypt'
 class User < ActiveRecord::Base
   include BCrypt
   validates_presence_of :name, :password_hash
+  validates_uniqueness_of :name
+  has_many :posts
 
   def password
     @password ||= Password.new(password_hash)

@@ -21,6 +21,7 @@ get '/post/:id' do
 end
 
 post '/post' do
+  params[:user_id] = session[:user]
   Post.create(params)
   @newpost = Post.last
   redirect "/post/#{@newpost.id}"
@@ -41,6 +42,7 @@ end
 post '/login' do 
   if User.login(params)
     session[:user] = params[:name]
+    session[:user_id] = User.find_by_name(params[:name]).id
     redirect "/user/#{params[:name]}" 
   else
     redirect '/'
@@ -49,5 +51,5 @@ end
 
 get '/user/:name' do 
   @user = User.find_by_name(params[:name])
-  "Hi #{@user.name}"
+  "Hi #{session[:user_id]}"
 end

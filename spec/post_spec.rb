@@ -13,7 +13,7 @@ describe Post do
   it  { should validate_presence_of(:title) }
   it  { should validate_presence_of(:description) }
   it  { should validate_presence_of(:price) }
-  it { should belong_to(:user) }
+  it  { should belong_to(:user) }
 
 end
 
@@ -21,6 +21,7 @@ describe User do
   let(:user) {User.create(name: "John Doe", password: "secretsauce")}
   it {should validate_presence_of(:name)}
   it {should validate_presence_of(:password_hash)}
+  it {should validate_uniqueness_of(:name)}
 end
 
 feature 'Guest visits home page' do 
