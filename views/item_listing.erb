@@ -1,0 +1,8 @@
+<h1> Items for sale! </h1>
+<% Item.all.each do |item| %>
+<%= item.title %>
+<%= item.price %>
+<%= item.description %>
+<% end %>
+
+

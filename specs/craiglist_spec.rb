@@ -20,7 +20,6 @@ describe Item do
     expect(@item.price).to eq("24.34")
   end
   # it { should belong_to(:user) } ASK BRANDON HOW TO IMPLEMENT, getting errors
-
 end
 
 describe User do
