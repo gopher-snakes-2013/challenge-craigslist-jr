@@ -55,7 +55,7 @@ get '/sign_up' do
 end
 
 post '/sign_up' do
-  new_user = User.new(name: params["sign_up_username"], password: params["sign_up_password"])g
+  new_user = User.new(name: params["sign_up_username"], password: params["sign_up_password"])
   if new_user.save
     session[:user_id] = new_user.id
     redirect("/")
