@@ -8,7 +8,7 @@ feature "Edit a listing" do
     fill_in('price', with: '200')
     click_button('Post Listing')
     @post = Post.last
-    visit("/#{@post.id}/#{@post.edit_url}")
+    visit("/posts/#{@post.id}/#{@post.edit_url}")
   end
 
   scenario "should allow user to edit listing" do
