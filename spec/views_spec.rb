@@ -52,12 +52,12 @@ feature "user can list, edit and delete items" do
     click_on "list"
   end
 
-  scenario "guest lists item" do
+  scenario "user lists item" do
     expect(page).to have_content("#{@item} - #{@descript} - #{@price}")
     expect(page).to have_content("your listings:")
   end
 
-  scenario "guest saves edits" do
+  scenario "user saves edits" do
     click_on "edit"
     generate_fake_item
     fill_in "title", with: @item
@@ -67,7 +67,7 @@ feature "user can list, edit and delete items" do
     expect(page).to have_content("#{@item} - #{@descript} - #{@price}")
   end
 
-  scenario "guest deletes item" do
+  scenario "user deletes item" do
     click_on "delete"
     expect(page).to_not have_content("#{@item} - #{@descript} - #{@price}")
   end
