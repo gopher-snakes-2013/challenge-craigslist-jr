@@ -9,18 +9,27 @@
 <body>
   <div class="container">
     <div class="header">
-    <a href="/">craigslist jr</a>
+      <h1><a href="/">craigslist jr</a><h1>
     </div>
     <br/>
-    <div class="listing">
-      <form action="/listing" method="post">
-        <input type="text" name="title" placeholder="ITEM">
-        <input type="text" name="description" placeholder="DESCRIPTION">
-        <input type="text" name="price" placeholder="$">
-        <input type="submit" value="LIST">
+    <div class="login">
+      <form action="/login" method="post">
+        <input type="text" name="user[user_name]" placeholder="username">
+        <input type="password" name="user[password]" placeholder="password">
+        <input type="submit" value="LOG IN">
       </form>
+      <div class="sign-up">
+        <p>not a user? sign up</p>
+        <form action="/signup" method="post">
+          <input type="text" name="user[user_name]" placeholder="username">
+          <input type="password" name="user[password]" placeholder="password">
+          <input type="submit" value="SIGN UP">
+        </form>
+      </div>
     </div>
-    <div>
+    <br/>
+    <div class="all-listings">
+      all listings:
       <% @items.each do |item| %>
       <p><%= "#{item.title} - #{item.description} - #{item.price}" %></p>
       <% end %>

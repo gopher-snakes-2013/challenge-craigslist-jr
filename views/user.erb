@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>edit <%= @item.title %></title>
+  <title><%= @username %></title>
   <link href="normalize.css" rel="stylesheet" type="text/css">
   <link href="style.css" rel="stylesheet" type="text/css">
 </head>
@@ -25,28 +25,18 @@
     <div class="user-listings">
       your listings:
       <br/><br/>
-      <div class="edit-listing">
-        <form action="/edited" method="post">
-          <input type="hidden" name="item_id" value="<%= @item.id %>">
-          <input type="text" name="title" placeholder="<%= @item.title %>">
-          <input type="text" name="description" placeholder="<%= @item.description %>">
-          <input type="text" name="price" placeholder="<%= @item.price %>">
-          <input type="submit" value="edit">
-        </form>
-        <br/>
-      </div>
-        <% @user_items.each do |item| %>
-        <%= "#{item.title} - #{item.description} - #{item.price}" %>
-        <form action="/edit" method="post">
-          <input type="hidden" name="item_id" value="<%=item.id%>">
-          <input type="submit" value="edit">
-        </form>
-        <form action="/delete" method="post">
-          <input type="hidden" name="item_id" value="<%=item.id%>">
-          <input type="submit" value="delete">
-        </form>
-        <br/><br/>
-      <% end %>
+      <% @user_items.each do |item| %>
+      <%= "#{item.title} - #{item.description} - #{item.price}" %>
+      <form action="/edit" method="post">
+        <input type="hidden" name="item_id" value="<%=item.id%>">
+        <input type="submit" value="edit">
+      </form>
+      <form action="/delete" method="post">
+        <input type="hidden" name="item_id" value="<%=item.id%>">
+        <input type="submit" value="delete">
+      </form>
+      <br/><br/>
+    <% end %>
     </div>
     <br/>
     <div class="all-listings">

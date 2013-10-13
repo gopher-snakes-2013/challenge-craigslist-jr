@@ -1,9 +1,13 @@
 class User < ActiveRecord::Base
   has_many :items
-
-  validates_presence_of :user_name
-  validates_presence_of :password
-  validates_uniqueness_of :user_name
+  validates :user_name, presence: true, uniqueness: true
+  validates :password, presence: true
   validates :password, length: { minimum: 7,
     message: "needs at least 7 characters" }
+
+  def self.authenticate(user_hash)
+    user = User.find_by(user_hash[:username])
+    return false unless user && user.password == user_hash[:password]
+    user
+  end
 end

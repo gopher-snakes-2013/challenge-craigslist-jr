@@ -1,12 +1,20 @@
 require 'spec_helper'
 
 feature "VIEWS" do
-  background "guest lists item" do
+  background do
     visit '/'
-    fill_in "title", with: "bicycle"
-    fill_in "description", with: "road"
-    fill_in "price", with: "100"
-    click_on "LIST"
+    @name = Faker::Name.first_name
+  end
+
+  scenario "guest visits home page" do
+    expect(page).to have_content("craigslist")
+  end
+
+  scenario "guest can sign up" do
+    # page.all(:fillable_field, "username")[2].set(@name)
+    # page.all(:fillable_field, "password")[2].set("password")
+    click_on "SIGN UP"
+    expect(page).to have_content("hey #{@name}")
   end
 
   scenario "guest can see their item" do

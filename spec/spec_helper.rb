@@ -13,4 +13,7 @@ RSpec.configure do |config|
   config.before do
     Item.destroy_all
   end
+  config.before do
+    User.destroy_all
+  end
 end

@@ -30,3 +30,14 @@ Now build it.
 * User may edit any of the listings they created without
   remembering the secret URL
 * User may delete a listing
+
+### Nat's Notes
+
+* homepage: login, signup, all listings
+* userpage: user listings, all listings
+* (editpage: user can edit/delete each listing)
+    - your listings:
+      bicycle road 100 EDIT DELETE
+      coffee latte 5 EDIT DELETE
+  * if clicks on edit, edit fields pop up.
+  * SAVE leads back to userpage with updated list
