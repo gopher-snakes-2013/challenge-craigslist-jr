@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'User can sign up' do
   before :each do
-    visit '/'
+    visit '/sign_up'
     fill_in('sign_up_username', with: 'Steven')
     fill_in('sign_up_password', with: 'password')
     click_button('Sign Up')
