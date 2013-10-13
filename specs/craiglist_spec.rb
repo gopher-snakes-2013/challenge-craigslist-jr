@@ -1,5 +1,6 @@
 require_relative 'spec_helper'
 require_relative '../models/item'
+require_relative '../models/user'
 
 
 describe Item do
@@ -18,4 +19,17 @@ describe Item do
   it "should have a price" do
     expect(@item.price).to eq("24.34")
   end
+  # it { should belong_to(:user) } ASK BRANDON HOW TO IMPLEMENT, getting errors
+end
+
+describe User do
+  before(:each) do
+    @current_user = User.create(username: "og_megabot")
+  end
+
+  it "should have a username" do
+    expect(@current_user.username).to eq("og_megabot")
+  end
+
+  # it { should have_many(:items)}
 end

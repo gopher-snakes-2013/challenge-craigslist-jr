@@ -8,4 +8,6 @@ gem 'pg'
 
 group :development do
   gem 'rspec'
+  gem 'shoulda-matchers'
+  gem 'capybara'
 end
