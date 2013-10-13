@@ -32,14 +32,12 @@ post '/' do
 end
 
 get '/:id' do
-  @post_id = params[:id]
-  @posting = Post.find_by(id: @post_id)
+  @posting = Post.find_by(id: params[:id])
   erb :posting
 end
 
 get '/:id/:edit_url' do
-  @post_id = params[:id]
-  @posting = Post.find_by(id: @post_id)
+  @posting = Post.find_by(id: params[:id])
   erb :edit_posting 
 end
 
