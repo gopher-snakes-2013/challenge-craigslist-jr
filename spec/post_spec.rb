@@ -6,7 +6,7 @@ describe Post do
     @posting = Post.create(title: 'iPad', description: 'White 16GB iPad 2', price: '200')
   end
   
-  it 'should ' do
+  it 'should save in posts' do
     expect(@posting.title).to eql('iPad')
     expect(@posting.description).to eql('White 16GB iPad 2')
     expect(@posting.price).to eql('200')
