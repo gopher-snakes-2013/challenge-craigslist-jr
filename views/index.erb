@@ -2,6 +2,7 @@
 
 <% if @user %>
 	<h2>Welcome, <%= @user.name %></h2>
+	<a href="/users/<%= @user.id %>">Visit Profile Page</a>
 <% end %>
 
 <% unless @user %>

@@ -74,3 +74,7 @@ post '/sign_in' do
     redirect('/')
   end
 end
+
+get '/users/:id' do
+  "Edit: iPad"
+end
