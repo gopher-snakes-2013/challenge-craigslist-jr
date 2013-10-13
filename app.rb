@@ -11,17 +11,17 @@ get '/' do
 end
 
 post '/new_item' do
-  Item.create(title: params[:new_item_title],
+  new_key = SecureRandom.urlsafe_base64
+  @item = Item.create(title: params[:new_item_title],
               description: params[:new_item_desc],
               price: params[:new_item_price],
-              item_key: SecureRandom.urlsafe_base64 )
-  redirect to '/items/:item_key'
+              item_key: new_key )
+  redirect to("/items/#{new_key}")
   
 end
 
 
 get '/items/:item_key' do
-  @item = Items.find_by item_key: :item_key
+  @item = Item.where("item_key = ?", params[:item_key]).first
   erb :item
-
 end

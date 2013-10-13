@@ -1,2 +1,5 @@
 <h1>Here's your item!</h1>
-<p>To get back here, bookmark <a href="/<%= item.item_key %>">host/<%= item.item_key %></a>
+<p><strong><%= @item.title %></strong> listed for $<%= @item.price %></p>
+<p>Description: <%= @item.description %></p>
+<br />
+<p>To return here, bookmark: <a href="/items/<%= @item.item_key %>">this link</a></p>
