@@ -3,6 +3,7 @@ require 'sinatra/activerecord'
 require 'sinatra/flash'
 
 require './models/post'
+require './models/user'
 
 
 begin 
