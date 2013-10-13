@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     message: "needs at least 7 characters" }
 
   def self.authenticate(user_hash)
-    user = User.find_by(user_hash[:username])
+    user = User.find_by(user_name: user_hash[:user_name])
     return false unless user && user.password == user_hash[:password]
     user
   end
