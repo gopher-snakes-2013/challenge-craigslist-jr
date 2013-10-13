@@ -55,12 +55,22 @@ get '/sign_up' do
 end
 
 post '/sign_up' do
-  new_user = User.new(name: params["sign_up_username"], password: params["sign_up_password"])g
+  new_user = User.new(name: params["sign_up_username"], password: params["sign_up_password"])
   if new_user.save
     session[:user_id] = new_user.id
     redirect("/")
   else
     flash[:error] = "All fields are required!"
     redirect('/sign_up')
+  end
+end
+
+post '/sign_in' do
+  if current_user = User.find_by(name: params["sign_in_username"])
+    session[:user_id] = current_user.id
+    redirect('/')
+  else
+    flash[:sign_in_error] = "That Username/Password combination doesn't exist. Please try again."
+    redirect('/')
   end
 end
