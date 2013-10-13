@@ -1,3 +1,2 @@
-require './craigslist_app.rb'
-require 'tasks/rspec'
+require './craigslist_app'
 require 'sinatra/activerecord/rake'
