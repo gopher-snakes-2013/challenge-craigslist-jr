@@ -3,8 +3,17 @@
 <!-- List new item -->
 <form method="post" action="/new_item">
 	<label>List new item <br />
-		Title: <input type="text" name="new_item_name">
-		Description: <input type="text" name="new_item_desc">
-		Price: <input text="text" name="new_item_price">
+		Title: <input type="text" name="new_item_title" />
+		Description: <input type="text" name="new_item_desc" />
+		Price: <input text="text" name="new_item_price" />
 	</label>
+	<input type="submit" value="Submit new item" />
 </form>
+
+<!-- List all items -->
+<h3>Items on sale</h3>
+<ul>
+	<% @items.each do |item| %>
+	<li><%= item.title %>    <%= item.description %>    <%= item.price %></li>
+	<% end %>
+</ul>
