@@ -64,3 +64,13 @@ post '/sign_up' do
     redirect('/sign_up')
   end
 end
+
+post '/sign_in' do
+  if current_user = User.find_by(name: params["sign_in_username"])
+    session[:user_id] = current_user.id
+    redirect('/')
+  else
+    flash[:sign_in_error] = "That Username/Password combination doesn't exist. Please try again."
+    redirect('/')
+  end
+end
