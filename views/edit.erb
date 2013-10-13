@@ -2,39 +2,30 @@
 <html>
 <head>
   <title>edit <%= @item.title %></title>
-  <link href="normalize.css" rel="stylesheet" type="text/css">
-  <link href="style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/normalize.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
   <div class="container">
     <div class="header">
-      <h2>hey <%= @username %><h2>
+      <h2>hey <%= current_user.user_name %><h2>
     </div>
     <br/>
-    <div class="new-listing">
-      <form action="/new_listing" method="post">
-        <input type="hidden" name="user_id" value="<%= @user_id %>">
-        <input type="text" name="title" placeholder="item">
-        <input type="text" name="description" placeholder="description">
-        <input type="text" name="price" placeholder="$">
-        <input type="submit" value="LIST">
+    <div class="edit-listing">
+      <form action="/edited" method="post">
+        <input type="hidden" name="item_id" value="<%= @item.id %>">
+        <input type="text" name="title" placeholder="<%= @item.title %>">
+        <input type="text" name="description" placeholder="<%= @item.description %>">
+        <input type="text" name="price" placeholder="<%= @item.price %>">
+        <input type="submit" value="save">
+      </form>
+      <form action="/cancel" method="post">
+        <input type="submit" value="cancel">
       </form>
     </div>
-    <br/>
-    <div class="user-listings">
-      your listings:
       <br/><br/>
-      <div class="edit-listing">
-        <form action="/edited" method="post">
-          <input type="hidden" name="item_id" value="<%= @item.id %>">
-          <input type="text" name="title" placeholder="<%= @item.title %>">
-          <input type="text" name="description" placeholder="<%= @item.description %>">
-          <input type="text" name="price" placeholder="<%= @item.price %>">
-          <input type="submit" value="edit">
-        </form>
-        <br/>
-      </div>
+    <div class="user-listings">
         <% @user_items.each do |item| %>
         <%= "#{item.title} - #{item.description} - #{item.price}" %>
         <form action="/edit" method="post">
@@ -49,14 +40,8 @@
       <% end %>
     </div>
     <br/>
-    <div class="all-listings">
-      all listings:
-      <% @items.each do |item| %>
-      <p><%= "#{item.title} - #{item.description} - #{item.price}" %></p>
-      <% end %>
-    </div>
     <div>
-      <p><a href='/logout'>log out</a></p>
+      <p><a href='/user'>back</a></p>
     </div>
   </div>
 </body>

@@ -33,14 +33,13 @@ end
 
 get '/user' do
   @items = Item.all
-  @user_items = session[:user].items
-  @user_id = session[:user][:id]
-  @username = session[:user][:user_name]
+  @user_items = current_user.items
+  @user_id = session[:user_id]
   erb :user
 end
 
 get '/logout' do
-  session[:user] = nil
+  log_out
   redirect '/'
 end
 
@@ -57,11 +56,14 @@ post '/edit' do
   redirect "/edit/#{params[:item_id]}"
 end
 
+post '/cancel' do
+  redirect "/user"
+end
+
 get '/edit/:id' do
   @items = Item.all
-  @user_items = session[:user].items
-  @user_id = session[:user][:id]
-  @username = session[:user][:user_name]
+  @user_items = current_user.items
+  @user_id = session[:user_id]
   session[:item] = Item.find(params[:id])
   @item = session[:item]
   erb :edit
@@ -79,7 +81,7 @@ end
 post '/login' do
   @user = User.authenticate(params[:user])
   if @user
-    session[:user] = @user
+    login(@user)
     redirect '/user'
   else
     redirect '/'
@@ -89,7 +91,7 @@ end
 post '/signup' do
   @user = User.create(params[:user])
   if @user.valid?
-    session[:user] = @user
+    login(@user)
     redirect '/user'
   else
     redirect '/'

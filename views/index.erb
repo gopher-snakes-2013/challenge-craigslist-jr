@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>CRAIGSLIST JR BITCH</title>
-  <link href="normalize.css" rel="stylesheet" type="text/css">
-  <link href="style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/normalize.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -16,23 +16,16 @@
       <form action="/login" method="post">
         <input type="text" name="user[user_name]" placeholder="username">
         <input type="password" name="user[password]" placeholder="password">
-        <input type="submit" value="LOG IN">
+        <input type="submit" value="log in">
       </form>
       <div class="sign-up">
         <p>not a user? sign up</p>
         <form action="/signup" method="post">
           <input type="text" name="user[user_name]" placeholder="username">
           <input type="password" name="user[password]" placeholder="password">
-          <input type="submit" value="SIGN UP">
+          <input type="submit" value="sign up">
         </form>
       </div>
-    </div>
-    <br/>
-    <div class="all-listings">
-      all listings:
-      <% @items.each do |item| %>
-      <p><%= "#{item.title} - #{item.description} - #{item.price}" %></p>
-      <% end %>
     </div>
   </div>
 </body>
