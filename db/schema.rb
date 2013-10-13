@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20131013225349) do
     t.string   "price"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "secure_key"
+    t.string   "item_key"
   end
 
 end
