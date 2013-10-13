@@ -1,0 +1,7 @@
+<h3>Sign Up</h3>
+<%= flash[:error] %>
+<form method="post" action="/sign_up">
+	<label>Username: <input type="text" name="sign_up_username"></label><br/>
+	<label>Password: <input type="password" name="sign_up_password"></label><br/>
+	<input type="submit" value="Sign Up">
+</form>
