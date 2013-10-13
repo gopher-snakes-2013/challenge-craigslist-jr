@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRAIGSLIST JR BITCH</title>
+  <link href="normalize.css" rel="stylesheet" type="text/css">
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+    <a href="/">craigslist jr</a>
+    </div>
+    <br/>
+    <div class="listing">
+      <form action="/listing" method="post">
+        <input type="text" name="title" placeholder="ITEM">
+        <input type="text" name="description" placeholder="DESCRIPTION">
+        <input type="text" name="price" placeholder="$">
+        <input type="submit" value="LIST">
+      </form>
+    </div>
+    <div>
+      <% @items.each do |item| %>
+      <p><%= "#{item.title} - #{item.description} - #{item.price}" %></p>
+      <% end %>
+    </div>
+  </div>
+</body>
+</html>
