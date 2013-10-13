@@ -48,3 +48,7 @@ post '/posts/update/:id' do
   posting.update(title: params["title"], description: params["description"], price: params["price"])  
   redirect "/posts/#{post_id}/#{posting.edit_url}"
 end
+
+post '/sign_up' do
+  "Welcome, Steven"
+end
