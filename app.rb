@@ -80,3 +80,9 @@ get '/users/:id' do
   @user_postings = Post.find_by(user_id: @user.id)
   erb :profile
 end
+
+post '/posts/delete/:id' do
+  post = Post.find_by(id: params[:id])
+  post.destroy
+  redirect("/users/#{session[:user_id]}")
+end
