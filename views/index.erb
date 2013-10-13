@@ -1,4 +1,13 @@
-<a href='/'>Home</a> | <a href='/login'>Login</a>
+<p>
+<a href='/'>Home</a>
+<% if session[:username] %>
+  | Logged in: <a href='/user/<%= session[:user_id] %>'><%= session[:username] %></a>
+  <a href='/logout'> | Logout</a>
+<% else %>
+  | <a href='/login'>Login</a>
+<% end %>
+</p>
+
 <h1>Robert's Craigslist Jr</h1>
 <h3>Items for sale | <a href='/item/new'>List an item</a></h3>
 <% if @items.size>0 %>
