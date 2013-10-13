@@ -1,21 +1,4 @@
-# Craigslist Jr
-1. [Learning Objectives](#learning-objectives)
-2. [Project Summary](#summary)
-3. [Releases](#releases)
-
-## Learning Objectives
-Your goal is to independently build a simple database driven sinatra
-application, test it, and deploy it to heroku.
-
-Evaluate your ability to implement an application based on the
-[Week 1 Learning Objectives](../../phase-2-guide/week-1/learning-objectives.md)
-
-
-## Summary
-Craigslist is a really cool place to get all kinds of things!
-Like stolen bicycles!
-
-Now build it.
+#Craigslist Jr
 
 ## Releases
 
