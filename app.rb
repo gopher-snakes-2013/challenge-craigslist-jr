@@ -21,12 +21,8 @@ get '/' do
 end
 
 post '/' do
-  edit_url = ""
-  10.times do
-    edit_url << (rand(9) + 1).to_s
-  end
+  edit_url = SecureRandom.hex
   new_post = Post.new(title: params["title"], description: params["description"], price: params["price"], edit_url: edit_url)
-  new_post.save
   if new_post.save
     redirect("/#{new_post.id}/#{new_post.edit_url}")
   else
