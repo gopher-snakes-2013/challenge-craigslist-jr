@@ -16,6 +16,12 @@ describe Post do
 
 end
 
+describe User do
+  let(:user) {User.create(name: "John Doe", password: "secretsauce")}
+  it {should validate_presence_of(:name)}
+  it {should validate_presence_of(:password_hash)}
+end
+
 feature 'Guest visits home page' do 
   let(:post) { Post.create(title: "Example Bike", 
                           description: "This example bike is in good shape.",
@@ -23,10 +29,15 @@ feature 'Guest visits home page' do
   scenario 'post item for sale' do 
     visit '/'
     fill_in 'title', with: "Example Title"
-    fill_in 'description', with: "Example Desciption"
+    fill_in 'description', with: "Example Description"
     fill_in 'price', with: "$30 example"
+    click_on 'Post'
   end
 
+end
+
+
+feature 'Guest may register as User' do
 end
 
 
