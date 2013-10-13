@@ -2,12 +2,15 @@
 
 <h2>Post a Listing:</h2>
 
+<%= flash[:error] %>
+
 <form method="post" action="/">
 	<label>Title: <input type="text" name="title"></label><br/>
 	<label>Price: $<input type="text" name="price"></label><br/>
 	<label>Description <textarea rows="4" cols="50" name="description"></textarea></label><br/>
 	<input type="submit" value="Post Listing">
 </form>
+
 
 <h2>Current Listings:</h2>
 
