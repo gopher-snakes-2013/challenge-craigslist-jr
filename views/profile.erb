@@ -4,10 +4,13 @@
 Your listings (click link to edit listing):
 <ul>
 	<% if @user_postings %>
-		<li><a href="/posts/<%= @user_postings.id %>/<%= @user_postings.edit_url %>">Edit: <%= @user_postings.title %></li>
+		<% @user_postings.each do |post| %>
+			<li><a href="/posts/<%= post.id %>/<%= post.edit_url %>">Edit: <%= post.title %></li>
+		<% end %>
 	<% else %>
 		<li>No listings yet</li>
 	<% end %>
 </ul>
 
-<a href='/'>Return to Craigslist Jr.</a>
+<a href='/'>Return to Craigslist Jr.</a><br/>
+<a href="/logout">Log Out</a>
