@@ -4,6 +4,7 @@ class CreateItemsTable < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :price
+      t.string :item_key
 
       t.timestamps
     end
