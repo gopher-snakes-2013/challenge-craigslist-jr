@@ -6,6 +6,11 @@ feature 'User can see profile page' do
     fill_in("sign_in_username", with: "Steven")
     fill_in("sign_in_password", with: "password")
     click_button("Sign In")
+    fill_in("title", with: "iPad")
+    fill_in("price", with: "200")
+    fill_in("description", with: "16GB iPad 2")
+    click_button("Post Listing")
+    visit('/')
     click_link("Visit Profile Page")
   end
 

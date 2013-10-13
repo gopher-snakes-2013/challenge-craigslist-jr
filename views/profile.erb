@@ -4,7 +4,7 @@
 Your listings (click link to edit listing):
 <ul>
 	<% if @user_postings %>
-		<li><%= @user_postings.title %></li>
+		<li><a href="/posts/<%= @user_postings.id %>/<%= @user_postings.edit_url %>">Edit: <%= @user_postings.title %></li>
 	<% else %>
 		<li>No listings yet</li>
 	<% end %>
