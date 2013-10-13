@@ -3,5 +3,9 @@
 
 Your listings (click link to edit listing):
 <ul>
-	<li>one</li>
+	<% if @user_postings %>
+		<li><%= @user_postings.title %></li>
+	<% else %>
+		<li>No listings yet</li>
+	<% end %>
 </ul>

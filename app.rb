@@ -24,7 +24,7 @@ end
 
 post '/' do
   edit_url = SecureRandom.hex
-  new_post = Post.new(title: params["title"], description: params["description"], price: params["price"], edit_url: edit_url)
+  new_post = Post.new(title: params["title"], description: params["description"], price: params["price"], edit_url: edit_url, user_id: session[:user_id])
   if new_post.save
     redirect("/posts/#{new_post.id}/#{new_post.edit_url}")
   else
