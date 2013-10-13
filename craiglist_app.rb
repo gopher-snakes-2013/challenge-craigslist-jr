@@ -13,8 +13,13 @@ get '/' do
   erb :index
 end
 
-post '/display/posts' do
+post '/create/post' do
   @new_item = Item.create(params)
-  erb :item_listing
-  # "yo charles"
+  "display url to edit item here!"
+  erb :edit_item_post
+end
+
+post '/display/items' do
+  "display posts here!"
+  erb :items_list
 end
