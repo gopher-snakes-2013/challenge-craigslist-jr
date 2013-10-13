@@ -6,7 +6,6 @@ gem 'sinatra-activerecord'
 gem 'shotgun'
 gem 'pg'
 
-
 group :development do
   gem 'rspec'
 end
