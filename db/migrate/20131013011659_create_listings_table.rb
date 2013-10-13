@@ -1,4 +1,4 @@
-class CreateListings < ActiveRecord::Migration
+class CreateListingsTable < ActiveRecord::Migration
   def up
     create_table :listings do |t|
       t.string :title
