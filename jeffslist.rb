@@ -21,17 +21,26 @@ get '/post/:id' do
 end
 
 post '/post' do
-  params[:user_id] = session[:user]
+  params[:user_id] = session[:user_id]
   Post.create(params)
   @newpost = Post.last
+  redirect "/user/#{session[:user_id]}" if session[:user_id]
   redirect "/post/#{@newpost.id}"
 end
+
+
+
 
 put '/update/:id' do 
   Post.find(params[:id]).update("price" => params[:price])
   Post.find(params[:id]).update("title" => params[:title])
   Post.find(params[:id]).update("description" => params[:description])
   redirect "/post/#{params[:id]}"
+end
+
+delete '/delete/:id' do 
+  Post.destroy(params[:id])
+  redirect "/user/#{session[:user_id]}"
 end
 
 post '/register' do 
@@ -51,5 +60,7 @@ end
 
 get '/user/:name' do 
   @user = User.find_by_name(params[:name])
-  "Hi #{session[:user_id]}"
+  puts session[:user_id]
+  @posts = Post.where("user_id = ?", session[:user_id])
+  erb :user
 end

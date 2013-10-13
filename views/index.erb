@@ -28,3 +28,9 @@
 
 
 </form>
+
+<% if session[:user_id] %>
+  <form method="get" action="/user/<%= session[:user_id] %>">
+    <input type="submit" value="My Posts">
+  </form>
+  <% end %>
