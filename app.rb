@@ -24,7 +24,7 @@ end
 
 post '/' do
   edit_url = SecureRandom.hex
-  new_post = Post.new(title: params["title"], description: params["description"], price: params["price"], edit_url: edit_url)
+  new_post = Post.new(title: params["title"], description: params["description"], price: params["price"], edit_url: edit_url, user_id: session[:user_id])
   if new_post.save
     redirect("/posts/#{new_post.id}/#{new_post.edit_url}")
   else
@@ -73,4 +73,10 @@ post '/sign_in' do
     flash[:sign_in_error] = "That Username/Password combination doesn't exist. Please try again."
     redirect('/')
   end
+end
+
+get '/users/:id' do
+  @user = User.find_by(id: session[:user_id])
+  @user_postings = Post.find_by(user_id: @user.id)
+  erb :profile
 end

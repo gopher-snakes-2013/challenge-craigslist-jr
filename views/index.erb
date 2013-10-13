@@ -2,6 +2,7 @@
 
 <% if @user %>
 	<h2>Welcome, <%= @user.name %></h2>
+	<a href="/users/<%= @user.id %>">Visit Profile Page</a>
 <% end %>
 
 <% unless @user %>
@@ -12,6 +13,7 @@
 		<label>Password: <input type="password" name="sign_in_password"></label><br/>
 		<input type="submit" value="Sign In">
 	</form>
+	<a href="/sign_up">Click Here to Join Craigslist Jr.</a>
 <% end %>
 
 <h2>Post a Listing:</h2>
@@ -25,7 +27,6 @@
 	<input type="submit" value="Post Listing">
 </form>
 
-<a href="/sign_up">Click Here to Join Craigslist Jr.</a>
 
 <h2>Current Listings:</h2>
 
