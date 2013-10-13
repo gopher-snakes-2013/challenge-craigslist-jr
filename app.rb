@@ -2,6 +2,8 @@ require 'sinatra'
 require 'sinatra/activerecord'
 set :database, ENV['DATABASE_URL'] || "sqlite3:///db/craigslist_jr.db"
 
+enable :sessions
+
 class Item < ActiveRecord::Base
 end
 class User < ActiveRecord::Base
