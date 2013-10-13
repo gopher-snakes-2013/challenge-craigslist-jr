@@ -36,7 +36,7 @@ post '/login' do
 end
 
 post '/signup' do
-  User.create(username: params[:username], password: params[:password])
+  user = User.create(username: params[:username], password: params[:password])
   session[:user_id] = user.id
   redirect "/user/#{user.id}"
 end
