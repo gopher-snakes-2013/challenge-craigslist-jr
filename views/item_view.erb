@@ -1,6 +1,9 @@
 <a href='/'>Home</a> | <a href='/item/new'>Create new listing</a>
 <h3><%= @item.title %></h3>
 
-<p>Price: <%= @item.price %></p>
-<p>Description</p>
+<p>Price: <%= "$"+ @item.price %></p>
+<p>Description:</p>
 <p><%= @item.description %></p>
+
+<h5>For Users Only</h5>
+<p>To edit your listing: <a href="/item/edit/<%= @item.url %>">localhost:9393/item/edit/<%= @item.url %></a></p>
