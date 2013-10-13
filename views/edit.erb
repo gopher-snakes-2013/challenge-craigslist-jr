@@ -1,48 +1,39 @@
-<!DOCTYPE html>
-<html>
 <head>
   <title>edit <%= @item.title %></title>
-  <link rel="stylesheet" href="/normalize.css">
-  <link rel="stylesheet" href="/style.css">
 </head>
-
-<body>
-  <div class="container">
-    <div class="header">
-      <h2>hey <%= current_user.user_name %><h2>
-    </div>
-    <br/>
-    <div class="edit-listing">
-      <form action="/edited" method="post">
-        <input type="hidden" name="item_id" value="<%= @item.id %>">
-        <input type="text" name="title" placeholder="<%= @item.title %>">
-        <input type="text" name="description" placeholder="<%= @item.description %>">
-        <input type="text" name="price" placeholder="<%= @item.price %>">
-        <input type="submit" value="save">
-      </form>
-      <form action="/cancel" method="post">
-        <input type="submit" value="cancel">
-      </form>
-    </div>
-      <br/><br/>
-    <div class="user-listings">
-        <% @user_items.each do |item| %>
-        <%= "#{item.title} - #{item.description} - #{item.price}" %>
-        <form action="/edit" method="post">
-          <input type="hidden" name="item_id" value="<%=item.id%>">
-          <input type="submit" value="edit">
-        </form>
-        <form action="/delete" method="post">
-          <input type="hidden" name="item_id" value="<%=item.id%>">
-          <input type="submit" value="delete">
-        </form>
-        <br/><br/>
-      <% end %>
-    </div>
-    <br/>
-    <div>
-      <p><a href='/user'>back</a></p>
-    </div>
-  </div>
-</body>
-</html>
+<div class="header">
+  <h2>hey <%= current_user.user_name %><h2>
+</div>
+<br/>
+<div class="edit-listing">
+  <form action="/edited" method="post">
+    <input type="hidden" name="item_id" value="<%= @item.id %>">
+    <input type="text" name="title" placeholder="<%= @item.title %>">
+    <input type="text" name="description" placeholder="<%= @item.description %>">
+    <input type="text" name="price" placeholder="<%= @item.price %>">
+    <input type="submit" value="save">
+  </form>
+  <form action="/cancel" method="post">
+    <input type="submit" value="cancel">
+  </form>
+</div>
+  <br/><br/>
+<div class="user-listings">
+    <% @user_items.each do |item| %>
+    <%= "#{item.title} - #{item.description} - #{item.price}" %>
+    <form action="/edit" method="post">
+      <input type="hidden" name="item_id" value="<%=item.id%>">
+      <input type="submit" value="edit">
+    </form>
+    <form action="/delete" method="post">
+      <input type="hidden" name="item_id" value="<%=item.id%>">
+      <input type="submit" value="delete">
+    </form>
+    <br/><br/>
+  <% end %>
+</div>
+<br/>
+<div>
+  <p><a href='/user'>back</a></p>
+</div>
+</div>
