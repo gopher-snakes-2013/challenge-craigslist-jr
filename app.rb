@@ -18,6 +18,7 @@ enable :sessions
 
 get '/' do
   @all_postings = Post.all
+  @user = User.find_by(id: session[:user_id])
   erb :index
 end
 
@@ -57,6 +58,7 @@ post '/sign_up' do
   new_user = User.new(name: params["sign_up_username"], password: params["sign_up_password"])
   p new_user
   if new_user.save
+    session[:user_id] = new_user.id
     redirect("/")
   else
     flash[:error] = "All fields are required!"
