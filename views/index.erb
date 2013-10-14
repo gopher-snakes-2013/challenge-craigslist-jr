@@ -33,4 +33,12 @@
   <form method="get" action="/user/<%= session[:user_id] %>">
     <input type="submit" value="My Posts">
   </form>
+
+  <form method="post" action="/logout">
+    <input type="submit" value="Logout">
+  </form>
+
+
   <% end %>
+
+
