@@ -6,10 +6,6 @@ require_relative 'models/user'
 
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || "postgres://localhost/cg")
 
-# createdb cg first
-# then
-# rake db:migrate
-
 get '/' do
   erb :index
 end
