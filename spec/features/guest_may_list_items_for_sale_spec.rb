@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 feature "Guest may list items for sale" do
-  scenario "Guest fills out required fields"
-    visit '/'
+  scenario "Guest fills out required fields" do
+    visit "/"
     click_on "Get Rid of Your Shit!"
 
     fill_in "title", with: "Giant Stone Monkey Head"
@@ -12,6 +12,7 @@ feature "Guest may list items for sale" do
     click_on "I Don't Want This Anymore!"
 
     expect(page).to have_content("")
+  end
 
-  scenario "Guest submits information to database"
+  xscenario "Guest submits information to database"
 end

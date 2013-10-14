@@ -1,6 +1,6 @@
-$LOAD_PATH.unshift(File.expand_path('.'))
+ENV['RACK_ENV'] ||= 'test'
 
-require 'craigs_list_app'
+require './craigs_list_app'
 
 require 'capybara/rspec'
 
