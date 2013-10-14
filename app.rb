@@ -16,12 +16,15 @@ post '/new_item' do
               description: params[:new_item_desc],
               price: params[:new_item_price],
               item_key: new_key )
-  redirect to("/items/#{new_key}")
-  
+  redirect to("/edit_item/#{new_key}")  
 end
 
+get '/edit_item/:item_key' do
+  @item = Item.find_by item_key: params[:item_key]
+  erb :edit_item
+end
 
-get '/items/:item_key' do
-  @item = Item.where("item_key = ?", params[:item_key]).first
+get '/item/:item_id' do
+  @item = Item.find(params[:item_id])
   erb :item
 end
