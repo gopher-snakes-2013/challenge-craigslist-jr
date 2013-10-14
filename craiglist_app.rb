@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
+# require 'SecureRandom'
 require_relative 'models/item'
 require_relative 'models/user'
 
@@ -14,8 +15,9 @@ get '/' do
 end
 
 post '/create/post' do
-  @new_item = Item.create(params)
-  "display url to edit item here!"
+  # @new_item = Item.create(params)
+  # "display url to edit item here!"
+  # redirect '/show/edit/post/#{}'
   erb :edit_item_post
 end
 
