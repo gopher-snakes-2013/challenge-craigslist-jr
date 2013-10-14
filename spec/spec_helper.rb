@@ -1,7 +1,9 @@
 $LOAD_PATH.unshift(File.expand_path('.'))
 require 'app'
-require 'capybara/rspec'
 require 'shoulda-matchers'
+require 'capybara/rspec'
+
+Capybara.app = Sinatra::Application
 
 RSpec.configure do |config|
   config.before do
