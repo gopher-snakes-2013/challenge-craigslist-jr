@@ -1,8 +1,20 @@
-<h1>Craigslist Jr.</h1>
-<h2>The Little Brother of Craigslist</h2>
+<h1><strong>Craigslist Jr.</strong></h1>
+<h2><em>The Little Brother of Craigslist</em></h2>
 
 <nav>
   <h3>
-    <a href="/items">Get Rid of Your Shit!</a>
+    <a href="/items/new">Get Rid of Your Shit!</a>
   </h3>
 </nav>
+
+<nav>
+  <h3>
+    <a href="/items/list">See the Shit You're Trying To Give To Someone Else!</a>
+  </h3>
+</nav>
+
+
+<% if flash[:notice] %>
+  <p class="notice"><%=flash[:notice]%></p>
+  <% flash[:notice] = nil %>
+<% end %>

@@ -9,9 +9,9 @@ feature "Guest may list items for sale" do
     fill_in "desc", with: "This is the second biggest monkey head I've ever sold!"
     fill_in "price", with: "$450"
 
-    click_on "I Don't Want This Anymore!"
+    click_on "I Don't Want This"
 
-    expect(page).to have_content("")
+    expect(page).to have_content("Hopefully Someone Else Wants This!")
   end
 
   xscenario "Guest submits information to database"
