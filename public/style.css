@@ -1,0 +1,41 @@
+body {
+  background: linear-gradient(to bottom, #ECECEA, #D9853B);
+  color: black;
+  font-family: helvetica-light;
+  margin: 0;
+}
+.header {
+  padding: 10px;
+}
+.login {
+  color: green;
+  position: fixed;
+  top: 5px;
+  right: 10px;
+}
+.create_posts {
+  background-color: #74AFAD;
+  padding: 20px;
+}
+.items_posted {
+  padding: 20px;
+}
+.section_heading{
+  font-size: 16;
+  font-weight: bold;
+}
+input, textarea {
+  padding: 5px;
+  font-size: 12px;
+  text-align: right;
+}
+input[type="submit"] {
+  font-family: helvetica;
+  font-size: 16px;
+  padding: 8px;
+  background: white;
+  color: black;
+}
+input[type="submit"]:hover {
+  color: #D9853B;
+}
