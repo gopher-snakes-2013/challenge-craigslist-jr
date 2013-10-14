@@ -1,0 +1,19 @@
+<h1>Craigslist, jr.</h1>
+
+<form action="/" method="POST" role="form">
+  <input type="text" name="title" placeholder="List your item">
+  <input type="text" name="description" placeholder="Describe your item">
+  <input type="text" name="price" placeholder="Your price">
+  <input type="submit">
+</form>
+
+<h2>Hot items:</h2>
+
+<ul>
+  <% @items.each do |item| %>
+    <li><%= item.title %></li>
+    <li><%= item.description %></li>
+    <li><%= item.price %></li>
+    <li><a href="edit/<%= item.id %>">Edit item</a></li>
+  <% end %>
+</ul>
