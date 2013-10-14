@@ -3,8 +3,8 @@ require 'app'
 require 'capybara/rspec'
 require 'shoulda-matchers'
 
-# RSpec.configure do |config|
-#   config.before do
-#     Item.destroy_all
-#   end
-# end
+RSpec.configure do |config|
+  config.before do
+    Item.destroy_all
+  end
+end

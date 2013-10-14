@@ -1,7 +1,17 @@
 <h1>Here's your item!</h1>
-<p><strong><%= @item.title %></strong> listed for $<%= @item.price %></p>
+<h2><%= @item.title %></h2>
+<h3>$<%= @item.price %></h3>
 <p>Description: <%= @item.description %></p>
 <br />
 <p>To return to this secret link, bookmark: <a href="/edit_item/<%= @item.item_key %>">this link</a></p>
 <br />
+<h3>Want to change something?</h3>
+<form method="post" action="/edit_item/<%= @item.item_key %>">
+	<label>Edit item<br />
+		Title: <input type="text" name="rev_item_title" />
+		Description: <input type="text" name="rev_item_desc" />
+		Price: <input text="text" name="rev_item_price" />
+	</label>
+	<input type="submit" value="Submit changes" />
+</form>
 <a href="../">Go Home</a>
