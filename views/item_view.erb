@@ -1,0 +1,15 @@
+<p>
+<a href='/'>Home</a> | <a href='/item/new'>Create new listing</a>
+<% if session[:username] %>
+  | Logged in: <a href='/user/<%= session[:user_id] %>'><%= session[:username] %></a>
+  <a href='/logout'> | Logout</a>
+<% else %>
+  | <a href='/login'>Login</a>
+<% end %>
+</p>
+
+<h3><%= @item.title %></h3>
+
+<p>Price: <%= "$"+ @item.price %></p>
+<p>Description:</p>
+<p><%= @item.description %></p>
