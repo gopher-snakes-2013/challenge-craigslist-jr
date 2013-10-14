@@ -1,10 +1,3 @@
-begin
-
-  require "rspec/core/rake_task"
-  
-  desc "Run all examples"
-  RSpec::Core::RakeTask.new(:spec)
-  task :default => :spec
-
-rescue LoadError
-end
+require './craigs_list_app.rb'
+require 'tasks/rspec'
+require 'sinatra/activerecord/rake'

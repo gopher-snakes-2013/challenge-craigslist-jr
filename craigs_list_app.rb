@@ -18,10 +18,20 @@ get '/items/new' do
 end
 
 post '/items/new' do
-  flash[:notice] = "Hopefully Someone Else Wants This!"
+  flash[:notice] = "You're So Generous!"
   redirect '/'
 end
 
 get '/items/list' do
   erb "items/list".to_sym
 end
+
+# createdb name
+# rake db:migrate
+
+# heroku login
+# heroku create "title"
+# git push heroku "branch_name"
+# heroku run rake db:migrate
+# heroku config
+# heroku open
