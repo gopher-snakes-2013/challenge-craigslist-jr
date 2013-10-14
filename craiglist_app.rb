@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'sinatra/activerecord'
-# require 'SecureRandom'
 require_relative 'models/item'
 require_relative 'models/user'
 
@@ -20,7 +19,6 @@ post '/display/items' do
   "display posts here!"
   erb :items_list
 end
-
 
 get '/show/post/:random_url' do
   @secret_url = params[:random_url]
