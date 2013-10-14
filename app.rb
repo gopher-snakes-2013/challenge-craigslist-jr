@@ -41,4 +41,16 @@ get '/posts/:id/:edit_url' do
   erb :edit_post
 end
 
+post '/posts/update/:id' do
+  @item = Item.find_by(id: params[:id])
+  @item.update(title: params[:title], price: params[:price], description: params[:description])
+  redirect '/'
+end
+
+post '/posts/delete/:id' do
+  @item = Item.find_by(id: params[:id])
+  @item.destroy
+  redirect '/'
+end
+
 

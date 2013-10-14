@@ -1,0 +1,15 @@
+<h1>Edit Posting</h1>
+
+<form action="/posts/update/<%= @item.id %>" method="post">
+  <label>Title:</label>
+    <input type="text" name="title" value="<%= @item.title %>"><br/>
+  <label>Price:</label>
+    <input type="text" name="price" value="<%= @item.price%>"><br/>
+    <textarea rows="10" col="100" name="description"><%= @item.description %></textarea>
+    <br/>
+    <input type="submit" value="Update Post">
+</form>
+<br/>
+<form action="/posts/delete/<%= @item.id %>" method="post">
+  <input type="submit" value="Delete Post">
+</form>
