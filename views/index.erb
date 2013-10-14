@@ -1,23 +1,36 @@
-<p>
-<a href='/'>Home</a>
-<% if session[:username] %>
-  | Logged in: <a href='/user/<%= session[:user_id] %>'><%= session[:username] %></a>
-  <a href='/logout'> | Logout</a>
-<% else %>
-  | <a href='/login'>Login</a>
-<% end %>
-</p>
+<h1>Zipbit<h1>
+<h2>The community bitcoin marketplace<h2>
 
-<h1>Robert's Craigslist Jr</h1>
-<h3>Items for sale | <a href='/item/new'>List an item</a></h3>
-<% if @items.size>0 %>
-  <ul>
-  <% @items.each do |item| %>
 
-      <li><p><%= "$" + item.price %> -- <a href='/item/<%= item.url %>'><%= item.title %></a></p>
+
+<h3>What would you like to contribute to the marketplace?</h3>
+
+<%=flash[:error] %>
+
+<form method="post" action="/">
+<div class="field">
+    <label for="name">Title</label>
+    <input type="text" class="input" name="title" id="title" />
+</div>
+ 
+<div class="field">
+    <label for="price">BTC</label>
+    <input type="text" class="input" name="price" id="price" />
+</div>
+ 
+<div class="field">
+    <label for="description">Description:</label>
+    <textarea class="input textarea" name="description" id="description">
+    </textarea>
+</div>
+ 
+ <button type="submit">Submit Listing</button>
+</form>
+
+<h1>Current Listings</h1>
+<ul>
+<% listings.each do |listing| %>
+    <li><%= listing.title %> &nbsp;-&nbsp; <%= listing.description %>&nbsp; PRICE:&nbsp;<%= listing.price %> BTC </li>
 
   <% end %>
   </ul>
-<% else %>
-  <h4>***No listings available***</h4>
-<% end %>
