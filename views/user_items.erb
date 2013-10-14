@@ -5,5 +5,8 @@
     <li><b>Price: </b><%=item.price %></li>
     <li><b>Description: </b><%=item.description %></li>
   </ul>
+  <a href="/posts/<%= item.id %>/<%= item.edit_url %>">Edit Post</a>
   <br/>
 <% end %>
+<br/>
+<a href='/'>Home</a>
