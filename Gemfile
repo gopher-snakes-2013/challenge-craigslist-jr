@@ -1,18 +1,16 @@
-source 'https://rubygems.org'
-ruby "2.0.0"
+source 'http://rubygems.org'
+ruby '1.9.3'
 gem 'sinatra'
-gem "sinatra-activerecord"
-gem "rake"
+gem 'sinatra-activerecord'
+gem 'pg'
+gem 'rack-flash3'
 
-group :production do
-  gem 'pg'
-end
 
-group :development, :test do
-  gem 'dotenv'
-  gem 'sqlite3'
-  gem 'shotgun'
-  gem 'capybara'
-  gem 'rspec'
-  gem 'shoulda-matchers'
+group :development, :test do 
+	gem 'rspec'
+	gem 'capybara'
+	gem 'shoulda-matchers'
+	gem 'shotgun'
+	gem 'faker'	
+	gem 'dotenv'
 end

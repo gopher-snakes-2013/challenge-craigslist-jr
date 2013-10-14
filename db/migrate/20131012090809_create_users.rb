@@ -1,10 +1,10 @@
-class CreateUsersTable < ActiveRecord::Migration
+class CreateUsers < ActiveRecord::Migration
   def up
     create_table :users do |t|
-      t.string :username
+      t.string :user_name
       t.string :password
 
-      t.timestamps
+      t.timestamp
     end
   end
 
