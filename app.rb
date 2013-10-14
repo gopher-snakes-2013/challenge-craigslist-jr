@@ -11,8 +11,10 @@ begin
 rescue LoadError
 end
 
-#set :database, ENV['DATABASE_URL']
-set :database, "sqlite3:///craigs.db"
+#set :database, "sqlite3:///craigs.db"
+
+set :database, ENV['DATABASE_URL']
+
 enable :sessions
 
 get '/' do
