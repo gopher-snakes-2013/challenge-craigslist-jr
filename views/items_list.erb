@@ -1,8 +1,12 @@
-<h1> Items for sale! </h1>
+<center><h1> Items for sale! </h1></center>
+<h4>    Item  Price    Description </h4>
 <% Item.all.each_with_index do |item, index| %>
-<%= index+1 %>.)<%="  "%><%= item.title %><%="    "%><%= item.price %><%="    "%><%= item.description %><br>
+<%= index+1 %>.) <strong><%= item.title %></strong>
+$<%= item.price %>
+<%= item.description %><br><br>
 <% end %>
 
+<br>
 <form method="get" action="/">
   <input type="submit" value="go back to homepage">
 </form>
