@@ -24,7 +24,7 @@ post '/post' do
   params[:user_id] = session[:user_id]
   Post.create(params)
   @newpost = Post.last
-  redirect "/user/#{session[:user]}" if session[:user_id]
+  redirect "/user/#{session[:name]}" if session[:user_id]
   redirect "/post/#{@newpost.id}"
 end
 
@@ -40,18 +40,19 @@ end
 
 delete '/delete/:id' do 
   Post.destroy(params[:id])
-  redirect "/user/#{session[:user]}"
+  redirect "/user/#{session[:name]}"
 end
 
 post '/register' do 
   user = User.create(params)
-  session[:user] = user.id
+  session[:user_id] = user.id
+  session[:name] = params[:name]
   redirect "/user/#{params[:name]}" 
 end
 
 post '/login' do 
   if User.login(params)
-    session[:user] = params[:name]
+    session[:name] = params[:name]
     session[:user_id] = User.find_by_name(params[:name]).id
     redirect "/user/#{params[:name]}" 
   else
@@ -61,13 +62,12 @@ end
 
 get '/user/:name' do 
   @user = User.find_by_name(params[:name])
-  puts session[:user_id]
   @posts = Post.where("user_id = ?", session[:user_id])
   erb :user
 end
 
 post '/logout' do 
   session[:user_id] = nil
-  puts "logged out"
+  session[:name] = nil
   redirect '/'
 end

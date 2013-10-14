@@ -1,44 +1,38 @@
 <form method="POST" action="/post">
-<label>Title<input type="text" name="title"></label>
-<label>Description<input type="text" name="description"></label>
-<label>Price<input type="text" name="price"></label>
-<input type="submit" value="Post">
+  <label>Title<input type="text" name="title"></label>
+  <label>Description<input type="text" name="description"></label>
+  <label>Price<input type="text" name="price"></label>
+  <input type="submit" value="Post">
 </form>
 
 <% @posts.each do |post| %>
   <li> <%= post.title %> : <%= post.description %> : <%= post.price %></li>
+<% end %>
 
-  <% end %>
-
-
+<% unless session[:user_id] %>
 <form method="POST" action="/register">
   <p>Register as User</p>
-<label>Name<input type="text" name="name"></label>
-<label>Password<input type="password" name="password"></label>
-<input type="submit" value="Register">
-
-
+  <label>Name<input type="text" name="name"></label>
+  <label>Password<input type="password" name="password"></label>
+  <input type="submit" value="Register">
 </form>
 
 <form method="POST" action="/login">
   <p>Login</p>
-<label>Name<input type="text" name="name"></label>
-<label>Password<input type="password" name="password"></label>
-<input type="submit" value="Login">
-
-
+  <label>Name<input type="text" name="name"></label>
+  <label>Password<input type="password" name="password"></label>
+  <input type="submit" value="Login">
 </form>
+<% end %>
 
 <% if session[:user_id] %>
-  <form method="get" action="/user/<%= session[:user_id] %>">
-    <input type="submit" value="My Posts">
-  </form>
+<form method="get" action="/user/<%= session[:name] %>">
+  <input type="submit" value="My Posts">
+</form>
 
-  <form method="post" action="/logout">
-    <input type="submit" value="Logout">
-  </form>
-
-
-  <% end %>
+<form method="post" action="/logout">
+  <input type="submit" value="Logout">
+</form>
+<% end %>
 
 
