@@ -12,8 +12,8 @@ rescue LoadError
 end
 
 #set :database, "sqlite3:///craigs.db"
-
-set :database, ENV['DATABASE_URL']
+#set :database, ENV['DATABASE_URL']
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 
 enable :sessions
 
