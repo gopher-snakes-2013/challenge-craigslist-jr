@@ -10,23 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131013024826) do
+ActiveRecord::Schema.define(version: 20131013230923) do
 
-  create_table "items", force: true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "posts", force: true do |t|
     t.string   "title"
-    t.text     "description"
+    t.string   "description"
     t.string   "price"
-    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
 
-  add_index "items", ["user_id"], name: "index_items_on_user_id"
-
   create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "password"
+    t.string   "name"
+    t.string   "password_hash"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

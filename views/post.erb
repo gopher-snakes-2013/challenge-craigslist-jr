@@ -1,0 +1,20 @@
+<h1>Edit your post</h1>
+<a href="/">Back to main page</a>
+<h4>Please bookmark this page to edit your post</h4>
+<form method="post" action="/update/<%=@post.id%>" name="Edit post">
+  <input type="hidden" name="_method" value="put"/>
+  <h2>Title: <%= @post.title %></h2>
+  <p> <label>Updated Title:<input type="text" name="title" placeholder="<%= @post.title %>"></label></p>
+  <p>Description: <%= @post.description %><br>
+    <label>Updated Description:<input type="text" name="description" placeholder="<%=@post.description %>"></label></p>
+    <p>Price: <%= @post.price %><br>
+      <label>Updated Price:<input type="text" name="price" placeholder="<%=@post.price%>"></label></p>
+      <input type="submit" value="Edit post">
+
+    </form>
+
+<% if session[:user_id] %>
+<form method="get" action="/user/<%= session[:name] %>">
+  <input type="submit" value="My Posts">
+</form>
+<% end %>

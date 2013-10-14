@@ -1,0 +1,18 @@
+<ul>
+<% @posts.each do |post| %>
+<form method="get" action="/post/<%=post.id%>" name="Edit post">
+<li><%=post.title%> : <%=post.description%>  <%=post.price%> 
+<input type="submit" value="Edit"></form><form method="post" action="/delete/<%=post.id%>" name="Delete post"> <input type="hidden" name="_method" value="delete"/><input type="submit" value="Delete">
+</form>
+<% end %>
+</ul>
+
+
+<form method="POST" action="/post">
+<label>Title<input type="text" name="title"></label>
+<label>Description<input type="text" name="description"></label>
+<label>Price<input type="text" name="price"></label>
+<input type="submit" value="Post">
+</form>
+
+<a href="/">Back to main page</a>

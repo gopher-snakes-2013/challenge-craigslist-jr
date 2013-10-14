@@ -1,23 +1,40 @@
-<p>
-<a href='/'>Home</a>
-<% if session[:username] %>
-  | Logged in: <a href='/user/<%= session[:user_id] %>'><%= session[:username] %></a>
-  <a href='/logout'> | Logout</a>
-<% else %>
-  | <a href='/login'>Login</a>
+
+<form method="POST" action="/post">
+  <label>Title<input type="text" name="title"></label>
+  <label>Description<input type="text" name="description"></label>
+  <label>Price<input type="text" name="price"></label>
+  <input type="submit" value="Post">
+</form>
+
+<% @posts.each do |post| %>
+  <li> <%= post.title %> : <%= post.description %> : <%= post.price %></li>
 <% end %>
-</p>
 
-<h1>Robert's Craigslist Jr</h1>
-<h3>Items for sale | <a href='/item/new'>List an item</a></h3>
-<% if @items.size>0 %>
-  <ul>
-  <% @items.each do |item| %>
+<% unless session[:user_id] %>
+<form method="POST" action="/register">
+  <p>Register as User</p>
+  <label>Name<input type="text" name="name"></label>
+  <label>Password<input type="password" name="password"></label>
+  <input type="submit" value="Register">
+</form>
 
-      <li><p><%= "$" + item.price %> -- <a href='/item/<%= item.url %>'><%= item.title %></a></p>
-
-  <% end %>
-  </ul>
-<% else %>
-  <h4>***No listings available***</h4>
+<form method="POST" action="/login">
+  <p>Login</p>
+  <label>Name<input type="text" name="name"></label>
+  <label>Password<input type="password" name="password"></label>
+  <input type="submit" value="Login">
+</form>
 <% end %>
+
+<% if session[:user_id] %>
+<form method="get" action="/user/<%= session[:name] %>">
+  <input type="submit" value="My Posts">
+</form>
+
+<form method="post" action="/logout">
+  <input type="submit" value="Logout">
+</form>
+<% end %>
+
+
+

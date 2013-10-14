@@ -1,2 +1,5 @@
-require './app'
+
+require './jeffslist'
 run Sinatra::Application
+
+
