@@ -1,0 +1,19 @@
+<h2> Your post has been successfully submitted!</h2>
+<strong>Title:</strong> <%= @current_item.title %> <br>
+<strong>Description:</strong> <%= @current_item.description %><br>
+<strong>Price:</strong> <%= @current_item.price %>
+
+
+<h3> If you'd like to edit your post at any time, please save this <a href="/edit/item/<%=@current_item.item_url%>">link</a>:</h3>
+<br>
+
+<form class="view items" method="post" action='/display/items'>
+  <input type= "submit" value="View all items for sale">
+</form>
+
+
+<form method="get" action="/">
+  <input type="submit" value="go back to homepage">
+</form>
+
+

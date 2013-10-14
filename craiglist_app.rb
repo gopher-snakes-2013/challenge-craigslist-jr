@@ -15,13 +15,54 @@ get '/' do
 end
 
 post '/create/post' do
-  # @new_item = Item.create(params)
-  # "display url to edit item here!"
-  # redirect '/show/edit/post/#{}'
-  erb :edit_item_post
+  random_url = SecureRandom.urlsafe_base64
+  @new_item = Item.create(title: params[:title], description: params[:description], price: params[:price], item_url: random_url)
+  redirect "/show/post/#{@new_item[:item_url]}"
 end
 
 post '/display/items' do
   "display posts here!"
   erb :items_list
+end
+
+
+get '/show/post/:random_url' do
+  @secret_url = params[:random_url]
+  @current_item = Item.find_by item_url: "#{@secret_url}"
+  erb :show_post
+end
+
+get '/edit/item/:item_url' do
+  @edit_item = Item.find_by item_url: "#{params[:item_url]}"
+  erb :edit_post
+end
+
+post '/update/post/:item_url' do
+  @current_item = Item.find_by item_url: "#{params[:item_url]}"
+  @current_item.title = params[:updated_title]
+  @current_item.description = params[:updated_description]
+  @current_item.price = params[:updated_price]
+  @current_item.save
+  erb :show_post
+end
+
+post '/update/title/:item_url' do
+  @current_item = Item.find_by item_url: "#{params[:item_url]}"
+  @current_item.title = params[:updated_title]
+  @current_item.save
+  erb :show_post
+end
+
+post '/update/description/:item_url' do
+  @current_item = Item.find_by item_url: "#{params[:item_url]}"
+  @current_item.description = params[:updated_description]
+  @current_item.save
+  erb :show_post
+end
+
+post '/update/price/:item_url' do
+  @current_item = Item.find_by item_url: "#{params[:item_url]}"
+  @current_item.price = params[:updated_price]
+  @current_item.save
+  erb :show_post
 end

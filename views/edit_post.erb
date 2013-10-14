@@ -1,0 +1,35 @@
+<h2> Edit your current item listing: </h2>
+
+ <h3>Edit a specific piece of your post: </h3>
+<form method="post" action='/update/title/<%=@edit_item.item_url%>'>
+  <label><strong>Title:</strong> <%= @edit_item.title %></label>
+  <input type="text" placeholder="Update Item Title" name="updated_title">
+  <input type= "submit" value="update title">
+</form>
+ 
+<form method="post" action='/update/description/<%=@edit_item.item_url%>'>  
+  <label><strong>Description:</strong> <%= @edit_item.description %></label>
+  <input type="text" placeholder="Update Description" name="updated_description">
+  <input type= "submit" value="update description">
+  <br>
+</form>  
+<form method="post" action='/update/price/<%=@edit_item.item_url%>'> 
+  <label><strong>Price:</strong> <%= @edit_item.price %></label>
+  <input type="text" placeholder="Update Price" name="updated_price">
+  <input type= "submit" value="update price">
+</form>
+
+<h3> Edit everything </h3>
+<form method="post" action='/update/post/<%=@edit_item.item_url%>'>
+  <input type="text" placeholder="Update Item Title" name="updated_title">
+  <input type="text" placeholder="Update Description" name="updated_description">
+  <input type="text" placeholder="Update Price" name="updated_price">
+  <input type= "submit" value="update all fields">
+</form>
+
+<form method="get" action="/">
+  <input type="submit" value="go back to homepage">
+</form>
+<form class="view items" method="post" action='/display/items'>
+  <input type= "submit" value="View all items for sale">
+</form>
