@@ -3,7 +3,7 @@ ruby "2.0.0"
 
 gem 'sinatra'
 gem 'sinatra-activerecord'
-require 'sinatra/flash'
+
 
 
 group :production, :staging do
