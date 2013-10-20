@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
-require 'sinatra/flash'
+# require 'sinatra/flash'
 require 'shotgun'
 require './models/item'
 require './models/user'
