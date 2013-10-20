@@ -1,6 +1,6 @@
 require './app'
 require 'sinatra/activerecord/rake'
-require "rspec/core/rake_task"
+#require "rspec/core/rake_task"
 
 begin
   require "rspec/core/rake_task"
