@@ -1,0 +1,10 @@
+<h2>Sign Up</h2>
+  <%= flash[:register_error] %>
+  <form action="/new_user" method="post">
+    <label>Username:</label>
+      <input type="text" name="name" placeholder="username">
+      <br/>
+      <label>Password:</label>
+        <input type="password" name="password" placeholder="password">
+      <br/>
+      <input type="submit" value="Sign Up">

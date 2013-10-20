@@ -1,0 +1,13 @@
+<div class ="login">
+  <h2>Log(in)</h2>
+  <%= flash[:log_in_error] %>
+  <form action="/new_session" method="post">
+    <label>Username:</label>
+      <input type="text" name="name" placeholder="username">
+      <br/>
+      <label>Password:</label>
+        <input type="password" name="password" placeholder="password">
+      <br/>
+      <input type="submit" value="Log In">
+    </form>
+  </div>

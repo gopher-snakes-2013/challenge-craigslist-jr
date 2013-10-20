@@ -1,0 +1,19 @@
+
+<div class="items_posted">
+  <h2>Your Items</h2>
+</div>
+
+
+<div class="items_posted">
+  <% @all_items.each do |item| %>
+    <h3><%=item.title %></h3>
+    <ul>
+      <li><b>Price: </b><%=item.price %></li>
+      <li><b>Description: </b><%=item.description %></li>
+    </ul>
+    <a href="/posts/<%= item.id %>/<%= item.edit_url %>">Edit Post</a>
+    <br/>
+  <% end %>
+  <br/>
+  <a href='/'>Home</a>
+</div>

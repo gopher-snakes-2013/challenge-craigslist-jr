@@ -1,0 +1,60 @@
+body {
+  background: linear-gradient(to bottom, #BFAF80, #8C6954);
+  color: black;
+  font-family: helvetica-light;
+  margin: 0;
+}
+.header {
+  background-color: black;
+  padding: 10px;
+}
+a:visited {color:white;}
+a:link {color:white;}
+
+ul, li {
+  font-weight: 550;
+}
+h1 {
+  color: white;
+  font-family: Helvetica;
+}
+h2 {
+  color: white;
+  font-family: Helvetica;
+  background-color: #260126;
+  padding: 10px;
+}
+h3 {
+  color: white;
+  font-family: Helvetica;
+  background-color: #59323C;
+  padding: 10px;
+}
+.header_login {
+  color: white;
+  position: fixed;
+  top: 5px;
+  right: 10px;
+}
+.create_posts, .login {
+  padding: 20px;
+}
+.items_posted {
+  padding: 20px;
+}
+
+input, textarea {
+  padding: 5px;
+  font-size: 12px;
+  text-align: right;
+}
+input[type="submit"] {
+  font-family: helvetica;
+  font-size: 16px;
+  padding: 8px;
+  background: white;
+  color: black;
+}
+input[type="submit"]:hover {
+  color: #D9853B;
+}

@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>
+    Craigslist III
+  </title>
+  <link href="/style.css" rel="stylesheet" type="text/css">
+  <style type="text/css"></style>
+</head>
+
+<body>
+<div class="header">
+  <a href="/"><h1>Craigslist III</h1></a>
+</div>
+<div class="header_login">
+  <br/></br>
+  <% if @user %>
+    Welcome <%= @user.name %>
+    <br/>
+    <a href="/users/<%= @user.id %>">Your Items</a> |
+    <a href="/logout">Log Out</a>
+
+  <%else%>
+    <a href="/login">Log In</a> |
+    <a href="/register">Create an account</a>
+  <%end%>
+</div>
+  <%= yield %>
+</body>
+
+</html>
